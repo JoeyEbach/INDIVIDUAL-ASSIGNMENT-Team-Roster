@@ -3,15 +3,13 @@ import { useAuth } from '../utils/context/authContext';
 import { getTeam } from '../api/members';
 import MemberCard from '../components/MemberCard';
 
-function Home() {
+function Teams() {
   const { user } = useAuth();
   const [cards, setCards] = useState([]);
 
   const getAllTheCards = () => {
     getTeam(user.uid).then(setCards);
   };
-
-  console.warn(cards);
 
   useEffect(() => {
     getAllTheCards();
@@ -28,4 +26,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Teams;
