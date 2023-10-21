@@ -1,8 +1,8 @@
 import React from 'react';
-import MemberForm from '../components/MemberForm';
+import TeamForm from '../../components/forms/TeamForm';
 
 export default function viewForm() {
   return (
-    <MemberForm />
+    <TeamForm />
   );
 }
