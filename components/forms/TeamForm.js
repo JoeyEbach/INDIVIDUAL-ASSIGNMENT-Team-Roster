@@ -2,23 +2,22 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Form, Button } from 'react-bootstrap';
-import { useAuth } from '../utils/context/authContext';
-import { createTeamMember, updateTeamMember } from '../api/members';
+import { useAuth } from '../../utils/context/authContext';
+import { createTeam, updateTeam } from '../../api/teams';
 
 const initialState = {
   name: '',
   image: '',
-  role: '',
 };
 
-function MemberForm({ memberObj }) {
+function TeamForm({ teamObj }) {
   const [formInput, setFormInput] = useState(initialState);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
-    if (memberObj.firebaseKey) setFormInput(memberObj);
-  }, [memberObj]);
+    if (teamObj.firebaseKey) setFormInput(teamObj);
+  }, [teamObj]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,14 +31,13 @@ function MemberForm({ memberObj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (memberObj.firebaseKey) {
-      console.warn('Im here');
-      updateTeamMember(formInput).then(() => router.push('/'));
+    if (teamObj.firebaseKey) {
+      updateTeam(formInput).then(() => router.push('/teams'));
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createTeamMember(payload).then(({ name }) => {
+      createTeam(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
-        updateTeamMember(patchPayload).then(() => router.push('/'));
+        updateTeam(patchPayload).then(() => router.push('/teams'));
       });
     }
   };
@@ -48,31 +46,21 @@ function MemberForm({ memberObj }) {
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Team Name</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Member Name"
+            placeholder="Enter Team Name"
             name="name"
             value={formInput.name}
             onChange={handleChange}
           />
         </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Role</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Member Role"
-            name="role"
-            value={formInput.role}
-            onChange={handleChange}
-          />
-        </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Image</Form.Label>
+          <Form.Label>Team Image</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Member Image URL"
+            placeholder="Enter Team Image URL"
             name="image"
             value={formInput.image}
             onChange={handleChange}
@@ -87,18 +75,17 @@ function MemberForm({ memberObj }) {
   );
 }
 
-MemberForm.propTypes = {
-  memberObj: PropTypes.shape({
+TeamForm.propTypes = {
+  teamObj: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
-    role: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };
 
-MemberForm.defaultProps = {
-  memberObj: initialState,
+TeamForm.defaultProps = {
+  teamObj: initialState,
 
 };
 
-export default MemberForm;
+export default TeamForm;

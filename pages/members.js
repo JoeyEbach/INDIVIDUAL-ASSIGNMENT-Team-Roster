@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../utils/context/authContext';
-import { getTeams } from '../api/teams';
-import TeamCard from '../components/TeamCard';
+import { getMembers } from '../api/members';
+import MemberCard from '../components/MemberCard';
 
 function Teams() {
   const { user } = useAuth();
   const [cards, setCards] = useState([]);
 
   const getAllTheCards = () => {
-    getTeams(user.uid).then(setCards);
+    getMembers(user.uid).then(setCards);
   };
 
   useEffect(() => {
@@ -16,15 +16,16 @@ function Teams() {
   }, []);
 
   return (
-    <div>
-      <h1 className="teamTitle">TEAMS</h1>
-      <div id="teamContainer">
-        <div id="allTeams">
+    <div className="memDiv">
+      <h1 className="memTitle">MEMBERS</h1>
+      <div id="memContainer">
+        <div id="allMembers">
           {cards.map((card) => (
-            <TeamCard key={card.firebaseKey} teamObj={card} onUpdate={getAllTheCards} />
+            <MemberCard key={card.firebaseKey} memberObj={card} onUpdate={getAllTheCards} />
           ))}
         </div>
       </div>
+
     </div>
   );
 }

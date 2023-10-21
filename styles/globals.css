@@ -18,5 +18,196 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: #16628A;
+  background-image: url('https://i.ibb.co/qnwpmQ7/Untitled-design.png');
+}
+
+#allMembers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 1100px;
+  margin-top: 50px;
+}
+
+#memContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#teamContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.memTitle {
+  display: inline-block;
+  justify-content: center;
+  color: #BBDCC7;
+  margin-top: 25px;
+  letter-spacing: 20px;
+  font-size: 50px;
+  margin-left: 125px;
+  font-family: inherit;
+}
+
+#memberCard {
+  width: 300px;
+  margin-bottom: 25px;
+  background-color: #3B4951;
+  color: #D0E1E4;
+  border: 2px solid #D7DA24;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+#memberCardBtns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+}
+
+#cImg {
+  width: 296px;
+  height: 298px;
+  object-fit: cover;
+}
+
+.m-2 {
+  color: #D7DA24;
+  border-color: #D7DA24;
+}
+
+
+#deletebtn {
+  width: 250px;
+  padding: 6px, 12px;
+  margin: 8px;
+}
+
+.teamTitle {
+  display: inline-block;
+  justify-content: center;
+  color: #BBDCC7;
+  margin-top: 25px;
+  letter-spacing: 20px;
+  font-size: 50px;
+  margin-left: 125px;
+  font-family: inherit;
+}
+
+#teamCard {
+  width: 300px;
+  margin-bottom: 25px;
+  background-color: #3B4951;
+  color: #D0E1E4;
+  border: 2px solid #D7DA24;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+#teamCardBtns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+}
+
+#teamPgImg {
+  display: flex;
+  justify-content: center;
+}
+
+#teamMemsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#tImg {
+  width: 296px;
+  height: 298px;
+  object-fit: cover;
+}
+
+#allTeams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 1100px;
+  margin-top: 50px;
+}
+
+#teamMems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 1100px;
+  margin-top: 50px;
+}
+
+.teamPageImg {
+  width: 1100px;
+  height: 200px;
+  object-fit: cover;
+  border: 5px solid #B73263;
+}
+
+.teamHead {
+  display: inline-block;
+  justify-content: center;
+  color: #D0E1E4;
+  font-size: 30px;
+  margin-top: 25px;
+  font-family: inherit;
+  margin-left: 100px;
+}
+
+#home {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  color: #D0E1E4;
+}
+
+#home > p {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#homeImg {
+  width: 1100px;
+  height: 200px;
+  object-fit: cover;
+  border: 5px solid #B73263;
+}
+
+#homeImgContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.homeTitle {
+  margin-top: 100px;
+  font-family: inherit;
+  margin-left: 100px;
+}
+
+#homeBtnsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.signOut {
+  position: fixed;
+  right: 25px;
+}
+
+.brand {
+  position: fixed;
+  left: 25px;
+  color: #D7DA24;
+  font-family: inherit;
 }

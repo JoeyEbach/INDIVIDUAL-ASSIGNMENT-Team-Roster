@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { getSingleMember } from '../../api/members';
-import MemberForm from '../../components/MemberForm';
+import TeamForm from '../../../components/forms/TeamForm';
+import { getSingleTeam } from '../../../api/teams';
 
 export default function EditMember() {
   const [editItem, setEditItem] = useState({});
@@ -9,8 +9,8 @@ export default function EditMember() {
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    getSingleMember(firebaseKey).then(setEditItem);
+    getSingleTeam(firebaseKey).then(setEditItem);
   }, [firebaseKey]);
 
-  return (<MemberForm memberObj={editItem} />);
+  return (<TeamForm teamObj={editItem} />);
 }
